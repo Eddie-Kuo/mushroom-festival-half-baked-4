@@ -71,6 +71,9 @@ function displayFriends() {
         friendEl.addEventListener('click', () => {
             if (friend.satisfaction < 3 && mushroomCount > 0)
                 friend.satisfaction++;
+            if (friend.satisfaction === 3)
+                alert(`${friend.name} is full! No more mushrooms please`);
+
             if (mushroomCount !== 0) {
                 mushroomCount--;
             }
@@ -89,6 +92,9 @@ function displayMushrooms() {
     for (let i = 0; i < mushroomCount; i++) {
         // for each mushroom in your mushroom state, render and append a mushroom
         mushroomsEl.append(renderMushroom());
+    }
+    if (mushroomCount === 0) {
+        alert(`Time to pick more mushrooms!`);
     }
 }
 
