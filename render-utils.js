@@ -14,8 +14,14 @@ export function renderFriend(friend) {
     nameEl.classList.add('name');
     emojiEl.classList.add('emoji');
 
-    nameEl.textContent = friend.name;
+    
 
+    if (friend.name === '') {
+        friend.name = `Friend ${Math.floor(Math.random() * 1000000)}`;
+    }
+
+    nameEl.textContent = friend.name;
+    
     if (friend.satisfaction === 1) {
         emojiEl.textContent = '😒';
     }
@@ -31,3 +37,6 @@ export function renderFriend(friend) {
     div.append(nameEl, emojiEl);
     return div;
 }
+
+
+
